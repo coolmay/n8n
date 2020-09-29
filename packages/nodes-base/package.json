@@ -184,6 +184,9 @@
       "dist/credentials/ZulipApi.credentials.js"
     ],
     "nodes": [
+      "dist/nodes/codedrpa/CreateExcel/CreateExcel.node.js",
+      "dist/nodes/codedrpa/CreateRandomText/CreateRandomText.node.js",
+      "dist/nodes/codedrpa/ExecutePowerShell/ExecutePowerShell.node.js",
       "dist/nodes/ActiveCampaign/ActiveCampaign.node.js",
       "dist/nodes/ActiveCampaign/ActiveCampaignTrigger.node.js",
       "dist/nodes/AgileCrm/AgileCrm.node.js",
