@@ -64,7 +64,7 @@ export class CreateExcel implements INodeType {
 				displayName: 'CellRow',
 				name: 'CellRow',
 				type: 'number',
-				default: '',
+				default: 0,
 				placeholder: 'Placeholder value',
 				description: 'CellRow',
 			}
@@ -74,7 +74,7 @@ export class CreateExcel implements INodeType {
 				displayName: 'CellColumn',
 				name: 'CellColumn',
 				type: 'number',
-				default: '',
+				default: 0,
 				placeholder: 'Placeholder value',
 				description: 'CellColumn',
 			}
@@ -92,14 +92,14 @@ export class CreateExcel implements INodeType {
 		item.json['FilePath'] = this.getNodeParameter('FilePath', 0, '') as string;
 		item.json['SheetName'] = this.getNodeParameter('SheetName', 0, '') as string;
 		item.json['Content'] = this.getNodeParameter('Content', 0, '') as string;
-		item.json['CellRow'] = this.getNodeParameter('CellRow', 0, '') as number;
-		item.json['CellColumn'] = this.getNodeParameter('CellColumn', 0, '') as number;
+		item.json['CellRow'] = this.getNodeParameter('CellRow', 0, 0) as number;
+		item.json['CellColumn'] = this.getNodeParameter('CellColumn', 0, 0) as number;
 
 
 		let responseData = await apiRequest.call(this, 'POST', 'robotagent/execute/createexcel', item.json);
 
 		let returnData: INodeExecutionData[] =  [];
-		returnData.push(responseData);
+		returnData.push({'json': responseData});
 		return this.prepareOutputData(returnData);
 	}
 }

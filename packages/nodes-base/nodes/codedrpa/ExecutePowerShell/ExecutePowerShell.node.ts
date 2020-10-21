@@ -54,7 +54,7 @@ export class ExecutePowerShell implements INodeType {
 				displayName: 'Wait For Exit',
 				name: 'WaitForExit',
 				type: 'boolean',
-				default: '',
+				default: false,
 				placeholder: 'Placeholder value',
 				description: 'WaitForExit',
 			}
@@ -71,13 +71,13 @@ export class ExecutePowerShell implements INodeType {
 
 		item.json['PowerShellFile'] = this.getNodeParameter('PowerShellFile', 0, '') as string;
 		item.json['Arguments'] = this.getNodeParameter('Arguments', 0, '') as string;
-		item.json['WaitForExit'] = this.getNodeParameter('WaitForExit', 0, '') as boolean;
+		item.json['WaitForExit'] = this.getNodeParameter('WaitForExit', 0, false) as boolean;
 
 
 		let responseData = await apiRequest.call(this, 'POST', 'robotagent/execute/executepowershell', item.json);
 
 		let returnData: INodeExecutionData[] =  [];
-		returnData.push(responseData);
+		returnData.push({'json': responseData});
 		return this.prepareOutputData(returnData);
 	}
 }

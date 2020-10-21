@@ -34,7 +34,7 @@ export class CreateRandomText implements INodeType {
 				displayName: 'Length',
 				name: 'Length',
 				type: 'number',
-				default: '',
+				default: 0,
 				placeholder: 'Placeholder value',
 				description: 'Length',
 			}
@@ -49,13 +49,13 @@ export class CreateRandomText implements INodeType {
 
 		let item: INodeExecutionData = items[0];
 
-		item.json['Length'] = this.getNodeParameter('Length', 0, '') as number;
+		item.json['Length'] = this.getNodeParameter('Length', 0, 0) as number;
 
 
 		let responseData = await apiRequest.call(this, 'POST', 'robotagent/execute/createrandomtext', item.json);
 
 		let returnData: INodeExecutionData[] =  [];
-		returnData.push(responseData);
+		returnData.push({'json': responseData});
 		return this.prepareOutputData(returnData);
 	}
 }
