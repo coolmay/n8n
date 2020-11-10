@@ -1061,8 +1061,8 @@ export default mixins(
 					PaintStyle: { strokeWidth: 2, stroke: '#334455' },
 					EndpointStyle: { radius: 9, fill: '#acd', stroke: 'red' },
 					// EndpointStyle: {},
-					HoverPaintStyle: { stroke: '#ff6d5a', lineWidth: 4 },
-					EndpointHoverStyle: { fill: '#ff6d5a', stroke: '#acd' },
+					HoverPaintStyle: { stroke: '#5d605f', lineWidth: 4 },
+					EndpointHoverStyle: { fill: '#5d605f', stroke: '#acd' },
 					ConnectionOverlays: connectionOverlays,
 					Container: '#node-view',
 				});
