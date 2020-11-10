@@ -7,10 +7,11 @@ WORKDIR /data/n8n
 RUN git pull https://github.com/coolmay/n8n --autostash -r
 RUN npm run build
 
-WORKDIR /data
+
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
+#WORKDIR /data
 #ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
-ENTRYPOINT ["su-exec","node","n8n"]
+ENTRYPOINT ["npm","run","start"]
 
 EXPOSE 5678/tcp
