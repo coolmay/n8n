@@ -1,1 +1,1 @@
-docker build %~dp0..\demo -t shiqiufang/n8n-demo:latest
+docker build %~dp0..\demo -t shiqiufang/n8n-demo:latest --no-cache

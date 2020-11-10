@@ -4,7 +4,7 @@ FROM shiqiufang/n8n-dev:latest
 USER root
 
 WORKDIR /data/n8n
-RUN git pull https://github.com/coolmay/n8n
+RUN git pull https://github.com/coolmay/n8n --autostash -r
 RUN npm run build
 
 WORKDIR /data
